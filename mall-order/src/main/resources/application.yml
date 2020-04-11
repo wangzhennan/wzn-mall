@@ -1,0 +1,12 @@
+spring:
+  application:
+    name:  eureka-server
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8081/eureka/
+    fetch-registry: false
+    #禁止注册自己
+    register-with-eureka: false
