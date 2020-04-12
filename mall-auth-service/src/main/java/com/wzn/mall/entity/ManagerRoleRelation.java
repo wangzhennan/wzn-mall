@@ -8,8 +8,8 @@ public class ManagerRoleRelation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "admin_id")
-    private Long adminId;
+    @Column(name = "manager_id")
+    private Long managerId;
 
     @Column(name = "role_id")
     private Long roleId;
@@ -29,17 +29,17 @@ public class ManagerRoleRelation {
     }
 
     /**
-     * @return admin_id
+     * @return manager_id
      */
-    public Long getAdminId() {
-        return adminId;
+    public Long getManagerId() {
+        return managerId;
     }
 
     /**
-     * @param adminId
+     * @param managerId
      */
-    public void setAdminId(Long adminId) {
-        this.adminId = adminId;
+    public void setManagerId(Long managerId) {
+        this.managerId = managerId;
     }
 
     /**

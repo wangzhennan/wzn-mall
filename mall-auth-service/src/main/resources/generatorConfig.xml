@@ -6,10 +6,10 @@
 <generatorConfiguration>
     <properties resource="config.properties"/>
 
-    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+    <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
-
+        <property name="javaFileEncoding" value="UTF-8"/>
 
         <plugin type="${mapper.plugin}">
             <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>

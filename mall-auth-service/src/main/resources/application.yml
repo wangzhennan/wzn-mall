@@ -17,7 +17,7 @@ spring:
     serialization:
       write-dates-as-timestamps: true
   application:
-    name: student-center
+    name: auth
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/edu-mall?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&tinyInt1isBit=false&nullCatalogMeansCurrent=true&serverTimezone=Asia/Shanghai
     username: root

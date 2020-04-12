@@ -3,8 +3,8 @@ package com.wzn.mall.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "resource")
-public class Resource {
+@Table(name = "api_resource")
+public class ApiResource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
