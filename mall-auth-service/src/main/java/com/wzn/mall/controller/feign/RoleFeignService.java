@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 /**
  * feign服务
  * @author wzn
- * @since 2020-04-12 16:53:06
+ * @since 2020-04-13 19:16:41
  */
 public interface RoleFeignService {
 

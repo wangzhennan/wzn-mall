@@ -7,12 +7,12 @@ import lombok.Data;
 /**
  * ManagerLogVo
  * @author wzn
- * @since 2020-04-12 16:58:54
+ * @since 2020-04-13 19:16:38
  */
 @Data
 @ApiModel("ManagerLogVo" )
 public class ManagerLogVo implements Serializable {
-    private static final long serialVersionUID = -34832878455315980L;
+    private static final long serialVersionUID = 482084727955497526L;
         
     @ApiModelProperty("$column.comment")
     private Long id;

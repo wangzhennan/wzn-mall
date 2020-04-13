@@ -36,10 +36,10 @@
     </dependency>
 
     <!-- spring-security 和 jwt -->
-   <!-- <dependency>
+    <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>-->
+    </dependency>
 
     <dependency>
         <groupId>io.jsonwebtoken</groupId>
@@ -102,6 +102,11 @@
         <artifactId>mapper-generator</artifactId>
         <version>1.1.5</version>
     </dependency>
+        <dependency>
+            <groupId>com.wzn.mall</groupId>
+            <artifactId>mall-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 </dependencies>
     <build>
     <plugins>

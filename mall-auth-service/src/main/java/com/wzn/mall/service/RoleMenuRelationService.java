@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiParam;
 /**
  * RoleMenuRelationService服务
  * @author wzn
- * @since 2020-04-12 16:48:31
+ * @since 2020-04-13 19:16:41
  */
 public interface RoleMenuRelationService {
 

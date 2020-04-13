@@ -1,0 +1,34 @@
+package com.wzn.mall.config.security;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wzn.mall.ResultModel;
+import com.wzn.mall.config.error.SysErrorCode;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.AuthenticationEntryPoint;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+/**
+ * @program: wzn-mall
+ * @description: 异常返回类
+ * @author: wangzhennan
+ * @create: 2020-04-13 16:28
+ **/
+public class ResultAuthenticationEntryPoint implements AuthenticationEntryPoint {
+
+    @Override
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        out.write(new ObjectMapper().writeValueAsString(ResultModel.error(SysErrorCode.AUTHENERROR)));
+        out.flush();
+    }
+}

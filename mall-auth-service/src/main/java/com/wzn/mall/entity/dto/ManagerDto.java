@@ -8,12 +8,12 @@ import lombok.Data;
 /**
  * ManagerDto
  * @author wzn
- * @since 2020-04-12 16:58:54
+ * @since 2020-04-13 19:16:38
  */
 @Data
 @ApiModel("ManagerDto")
 public class ManagerDto implements Serializable {
-    private static final long serialVersionUID = -49051440146927086L;
+    private static final long serialVersionUID = 491354690694448469L;
         
     @ApiModelProperty("$column.comment")
     private Long id;

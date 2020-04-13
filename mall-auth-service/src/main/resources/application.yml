@@ -7,11 +7,12 @@ eureka:
       defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8081}/eureka/
   instance:
     prefer-ip-address: true
-jwt:
-  secret: secret
-  expiration: 7200000
-  token: Authorization
 
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: wzn-mall-jwt #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24*7)
+  tokenHead: Bearer
 spring:
   jackson:
     serialization:

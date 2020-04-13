@@ -7,12 +7,12 @@ import lombok.Data;
 /**
  * RoleMenuRelationDto
  * @author wzn
- * @since 2020-04-12 16:58:54
+ * @since 2020-04-13 19:16:41
  */
 @Data
 @ApiModel("RoleMenuRelationDto")
 public class RoleMenuRelationDto implements Serializable {
-    private static final long serialVersionUID = 269941473475499638L;
+    private static final long serialVersionUID = 654882717683494161L;
         
     @ApiModelProperty("$column.comment")
     private Long id;

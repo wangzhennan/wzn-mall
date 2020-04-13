@@ -8,12 +8,12 @@ import lombok.Data;
 /**
  * PermissionDto
  * @author wzn
- * @since 2020-04-12 16:58:54
+ * @since 2020-04-13 19:16:39
  */
 @Data
 @ApiModel("PermissionDto")
 public class PermissionDto implements Serializable {
-    private static final long serialVersionUID = -76820729751488306L;
+    private static final long serialVersionUID = 636552758444407122L;
         
     @ApiModelProperty("$column.comment")
     private Long id;

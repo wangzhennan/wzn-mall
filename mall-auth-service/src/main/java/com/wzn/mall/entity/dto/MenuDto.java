@@ -8,12 +8,12 @@ import lombok.Data;
 /**
  * MenuDto
  * @author wzn
- * @since 2020-04-12 16:58:54
+ * @since 2020-04-13 19:16:39
  */
 @Data
 @ApiModel("MenuDto")
 public class MenuDto implements Serializable {
-    private static final long serialVersionUID = -28326463854625688L;
+    private static final long serialVersionUID = -29538432971711033L;
         
     @ApiModelProperty("$column.comment")
     private Long id;

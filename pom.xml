@@ -20,6 +20,7 @@
     <module>mall-eureka</module>
     <module>mall-gateway</module>
     <module>mall-auth-service</module>
+    <module>mall-security</module>
   </modules>
   <packaging>pom</packaging>
   <name>wzn-mall</name>
