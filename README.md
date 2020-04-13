@@ -7,4 +7,6 @@
 第一次画机构图 有问题欢迎指出
 ![](README.assets/WX20200404.png)
 
-##
+
+##后台管理员权限资源表设计
+![](README.assets/manager.png)
