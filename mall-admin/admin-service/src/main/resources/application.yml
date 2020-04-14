@@ -1,0 +1,60 @@
+server:
+  port: 8070
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8081}/eureka/
+  instance:
+    prefer-ip-address: true
+
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: wzn-mall-jwt #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24*7)
+  tokenHead: Bearer
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+  application:
+    name: auth
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/edu-mall?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&tinyInt1isBit=false&nullCatalogMeansCurrent=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    filters: stat
+    initialSize: 1
+    maxActive: 20
+    maxOpenPreparedStatements: 20
+    maxWait: 60000
+    minEvictableIdleTimeMillis: 300000
+    minIdle: 1
+    poolPreparedStatements: true
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    type: com.alibaba.druid.pool.DruidDataSource
+    validationQuery: select 'x'
+# 注意注意
+mybatis:
+  mapper-locations: classpath:com/wzn/mall/mapper/*.xml
+  type-aliases-package: com.wzn.mall.entity
+  ## 驼峰命名规范 如：数据库字段是  order_id 那么 实体字段就要写成 orderId
+  configuration:
+    map-underscore-to-camel-case: true
+
+########## 通用Mapper ##########
+# 主键自增回写方法,默认值MYSQL,详细说明请看文档
+mapper:
+  identity: MYSQL
+  mappers: tk.mybatis.mapper.common.BaseMapper
+  not-empty: true
+  enum-as-simple-type: true
+
+logging:
+  level:
+    ROOT: info
+    com.wzn.mall.mapper: debug
