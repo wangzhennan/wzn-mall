@@ -1,11 +1,14 @@
 package com.wzn.mall;
 
+import lombok.Data;
+
 /**
  * @program: wzn-mall
  * @description: 返回类
  * @author: wangzhennan
  * @create: 2020-04-05 13:25
  **/
+@Data
 public class ResultModel<T> {
 
     public static final Integer CODE_SUCCESS = 100000;

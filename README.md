@@ -9,4 +9,4 @@
 
 
 ##后台管理员权限资源表设计
-![](README.assets/manager.png)
+![](README.assets/admin.png)

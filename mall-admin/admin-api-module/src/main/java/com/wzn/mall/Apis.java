@@ -15,12 +15,14 @@ public interface Apis {
     /**
      * 管理员
      */
-    String MANAGER = "/manager";
+    String MANAGER = "/admin";
 
     /**
      * 菜单
      */
     String MENU = "/menu";
+
+    String PERM = "/permission";
 
     /**
      * 角色
@@ -67,6 +69,7 @@ public interface Apis {
     String MANAGER_ADD = MANAGER + ADD;
     String MANAGER_DEL = MANAGER + DEL;
     String MANAGER_EDIT = MANAGER + EDIT;
+    String MANAGER_BINDING = MANAGER + "/binding/role";
     //===========管理员 end ================
 
     //===========菜单 start================
@@ -85,6 +88,21 @@ public interface Apis {
     String ROLE_ADD = ROLE + ADD;
     String ROLE_DEL = ROLE + DEL;
     String ROLE_EDIT = ROLE + EDIT;
+    /**
+     * 绑定权限
+     */
+    String ROLE_BINDING_PERMISSION = ROLE + "/binding/resource";
+
     //===========角色 end ================
+    //===========权限 start ================
+    String PERM_DETALS = PERM + DETALS;
+    String PERM_QUERY_PAGE = PERM + QUERY_PAGE;
+    String PERM_QUERY_CONDITION = PERM + QUERY_CONDITION;
+    String PERM_ADD = PERM + ADD;
+    String PERM_DEL = PERM + DEL;
+    String PERM_EDIT = PERM + EDIT;
+    String PERM_BINDING = PERM + "/binding/resource";
+    String PERM_BINDING_MENU = PERM + "/binding/menu";
+    //===========权限 end ================
 
 }

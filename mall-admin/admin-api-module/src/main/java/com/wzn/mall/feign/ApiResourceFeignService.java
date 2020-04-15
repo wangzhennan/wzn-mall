@@ -1,6 +1,7 @@
 package com.wzn.mall.feign;
 
 import com.wzn.mall.Apis;
+import com.wzn.mall.ResultModel;
 import com.wzn.mall.entity.dto.ApiResourceDto;
 import com.wzn.mall.entity.vo.ApiResourceVo;
 import io.swagger.annotations.ApiOperation;
@@ -22,26 +23,26 @@ public interface ApiResourceFeignService {
 
     @ApiOperation(value = "根据id查询详情")
     @GetMapping(Apis.APIRESOURCE_DETALS)
-    ApiResourceVo queryApiResourceById(@RequestParam("id") Long id);
+    ResultModel<ApiResourceVo> queryApiResourceById(@RequestParam("id") Long id);
    
     @ApiOperation(value = "根据条件查询分页")
     @PostMapping(Apis.APIRESOURCE_QUERY_PAGE)
-    List<ApiResourceVo> queryApiResourceByConditionPage(Object object,int pageNum, int pageSize);
+    ResultModel<List<ApiResourceVo>> queryApiResourceByConditionPage(Object object, int pageNum, int pageSize);
 
     @ApiOperation(value = "根据条件查询")
     @PostMapping(Apis.APIRESOURCE_QUERY_CONDITION)
-    List<ApiResourceVo> queryApiResourceByCondition(Object object);
+    ResultModel<List<ApiResourceVo>> queryApiResourceByCondition(Object object);
 
     @ApiOperation(value = "添加")
     @PostMapping(Apis.APIRESOURCE_ADD)
-    ApiResourceVo add(@RequestBody ApiResourceDto apiResourceDto);
+    ResultModel<ApiResourceVo> add(@RequestBody ApiResourceDto apiResourceDto);
 
     @ApiOperation(value = "修改")
     @PostMapping(Apis.APIRESOURCE_EDIT)
-    boolean edit(@RequestBody ApiResourceDto apiResourceDto);
+    ResultModel<Boolean> edit(@RequestBody ApiResourceDto apiResourceDto);
 
     @ApiOperation(value = "删除")
     @PostMapping(Apis.APIRESOURCE_DEL)
-    boolean deleteById(Long id);
+    ResultModel<Boolean> deleteById(Long id);
 
 }

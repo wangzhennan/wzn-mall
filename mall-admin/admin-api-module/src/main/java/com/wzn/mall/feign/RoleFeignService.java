@@ -1,7 +1,11 @@
 package com.wzn.mall.feign;
 
+import com.github.pagehelper.PageInfo;
 import com.wzn.mall.Apis;
+import com.wzn.mall.ResultModel;
+import com.wzn.mall.entity.dto.BindingObjectDto;
 import com.wzn.mall.entity.dto.RoleDto;
+import com.wzn.mall.entity.dto.RoleQueryParam;
 import com.wzn.mall.entity.vo.RoleVo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,22 +28,26 @@ public interface RoleFeignService {
    
     @ApiOperation(value = "根据条件查询分页")
     @PostMapping(Apis.ROLE_QUERY_PAGE)
-    List<RoleVo> queryRoleByConditionPage(Object object,int pageNum, int pageSize);
+    PageInfo<List<RoleVo>> queryRoleByConditionPage(@RequestBody RoleQueryParam paramp);
 
     @ApiOperation(value = "根据条件查询")
     @PostMapping(Apis.ROLE_QUERY_CONDITION)
-    List<RoleVo> queryRoleByCondition(Object object);
+    ResultModel<List<RoleVo>> queryRoleByCondition(@RequestBody RoleQueryParam paramp);
 
     @ApiOperation(value = "添加")
     @PostMapping(Apis.ROLE_ADD)
-    RoleVo add(@RequestBody RoleDto roleDto);
+    ResultModel<RoleVo> add(@RequestBody RoleDto roleDto);
 
     @ApiOperation(value = "修改")
     @PostMapping(Apis.ROLE_EDIT)
-    boolean edit(@RequestBody RoleDto roleDto);
+    ResultModel<Boolean> edit(@RequestBody RoleDto roleDto);
 
     @ApiOperation(value = "删除")
     @PostMapping(Apis.ROLE_DEL)
-    boolean deleteById(Long id);
+    ResultModel<Boolean> deleteById(Long id);
+
+    @ApiOperation(value = "添加权限")
+    @PostMapping(Apis.ROLE_BINDING_PERMISSION)
+    ResultModel<Boolean> addPermission(BindingObjectDto bindingObjectDto);
 
 }

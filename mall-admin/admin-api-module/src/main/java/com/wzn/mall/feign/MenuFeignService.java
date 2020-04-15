@@ -1,6 +1,7 @@
 package com.wzn.mall.feign;
 
 import com.wzn.mall.Apis;
+import com.wzn.mall.ResultModel;
 import com.wzn.mall.entity.dto.MenuDto;
 import com.wzn.mall.entity.vo.MenuVo;
 import io.swagger.annotations.ApiOperation;
@@ -20,26 +21,26 @@ public interface MenuFeignService {
 
     @ApiOperation(value = "根据id查询详情")
     @GetMapping(Apis.MENU_DETALS)
-    MenuVo queryMenuById(@RequestParam("id") Long id);
+    ResultModel<MenuVo> queryMenuById(@RequestParam("id") Long id);
    
     @ApiOperation(value = "根据条件查询分页")
     @PostMapping(Apis.MENU_QUERY_PAGE)
-    List<MenuVo> queryMenuByConditionPage(Object object,int pageNum, int pageSize);
+    ResultModel<List<MenuVo>> queryMenuByConditionPage(Object object, int pageNum, int pageSize);
 
     @ApiOperation(value = "根据条件查询")
     @PostMapping(Apis.MENU_QUERY_CONDITION)
-    List<MenuVo> queryMenuByCondition(Object object);
+    ResultModel<List<MenuVo>> queryMenuByCondition(Object object);
 
     @ApiOperation(value = "添加")
     @PostMapping(Apis.MENU_ADD)
-    MenuVo add(@RequestBody MenuDto menuDto);
+    ResultModel<MenuVo> add(@RequestBody MenuDto menuDto);
 
     @ApiOperation(value = "修改")
     @PostMapping(Apis.MENU_EDIT)
-    boolean edit(@RequestBody MenuDto menuDto);
+    ResultModel<Boolean> edit(@RequestBody MenuDto menuDto);
 
     @ApiOperation(value = "删除")
     @PostMapping(Apis.MENU_DEL)
-    boolean deleteById(Long id);
+    ResultModel<Boolean> deleteById(Long id);
 
 }
