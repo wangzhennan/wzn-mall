@@ -1,13 +1,13 @@
 package com.wzn.mall.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.wzn.mall.ResultModel;
 import com.wzn.mall.entity.dto.MenuDto;
+import com.wzn.mall.entity.dto.MenuQueryParam;
 import com.wzn.mall.entity.vo.MenuVo;
 import com.wzn.mall.feign.MenuFeignService;
 import com.wzn.mall.service.MenuService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -26,18 +26,18 @@ public class MenuController implements MenuFeignService {
     private MenuService menuService;
  
     @Override
-    public ResultModel<MenuVo> queryMenuById(@ApiParam(value = " ID") @PathVariable("id") Long id) {
+    public ResultModel<MenuVo> queryMenuById(Long id) {
         return ResultModel.success(this.menuService.queryMenuById(id));
     }
     
     @Override
-    public ResultModel<List<MenuVo>> queryMenuByConditionPage(Object object, int pageNum, int pageSize) {
-        return ResultModel.success(this.menuService.queryMenuByConditionPage(object, pageNum, pageSize));
+    public ResultModel<PageInfo<List<MenuVo>>> queryMenuByConditionPage(MenuQueryParam param) {
+        return ResultModel.success(this.menuService.queryMenuByConditionPage(param));
     }
 
     @Override
-    public ResultModel<List<MenuVo>> queryMenuByCondition(Object object) {
-        return ResultModel.success(this.menuService.queryMenuByCondition(object));
+    public ResultModel<List<MenuVo>> queryMenuByCondition(MenuQueryParam param) {
+        return ResultModel.success(this.menuService.queryMenuByCondition(param));
     }
 
     @Override

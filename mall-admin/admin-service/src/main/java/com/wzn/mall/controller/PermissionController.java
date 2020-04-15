@@ -7,8 +7,6 @@ import com.wzn.mall.entity.vo.PermissionVo;
 import com.wzn.mall.feign.PermissionFeignService;
 import com.wzn.mall.service.PermissionService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -27,7 +25,7 @@ public class PermissionController implements PermissionFeignService {
     private PermissionService permissionService;
  
     @Override
-    public ResultModel<PermissionVo> queryPermissionById(@ApiParam(value = " ID") @PathVariable("id") Long id) {
+    public ResultModel<PermissionVo> queryPermissionById(Long id) {
         return ResultModel.success(this.permissionService.queryPermissionById(id));
     }
 

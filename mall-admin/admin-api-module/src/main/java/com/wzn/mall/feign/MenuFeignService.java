@@ -1,8 +1,10 @@
 package com.wzn.mall.feign;
 
+import com.github.pagehelper.PageInfo;
 import com.wzn.mall.Apis;
 import com.wzn.mall.ResultModel;
 import com.wzn.mall.entity.dto.MenuDto;
+import com.wzn.mall.entity.dto.MenuQueryParam;
 import com.wzn.mall.entity.vo.MenuVo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,11 +27,11 @@ public interface MenuFeignService {
    
     @ApiOperation(value = "根据条件查询分页")
     @PostMapping(Apis.MENU_QUERY_PAGE)
-    ResultModel<List<MenuVo>> queryMenuByConditionPage(Object object, int pageNum, int pageSize);
+    ResultModel<PageInfo<List<MenuVo>>> queryMenuByConditionPage(@RequestBody MenuQueryParam param);
 
     @ApiOperation(value = "根据条件查询")
     @PostMapping(Apis.MENU_QUERY_CONDITION)
-    ResultModel<List<MenuVo>> queryMenuByCondition(Object object);
+    ResultModel<List<MenuVo>> queryMenuByCondition(@RequestBody MenuQueryParam param);
 
     @ApiOperation(value = "添加")
     @PostMapping(Apis.MENU_ADD)

@@ -1,12 +1,15 @@
 package com.wzn.mall.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wzn.mall.entity.ApiResource;
 import com.wzn.mall.entity.ApiResourceExample;
 import com.wzn.mall.entity.dto.ApiResourceDto;
+import com.wzn.mall.entity.dto.ApisResourceQueryParam;
 import com.wzn.mall.entity.vo.ApiResourceVo;
 import com.wzn.mall.mapper.ApiResourceMapper;
 import com.wzn.mall.service.ApiResourceService;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -43,14 +46,20 @@ public class ApiResourceServiceImpl implements ApiResourceService {
 
     /**
      * 按条件查询分页
-     * @param pageNum 查询起始位置
-     * @param pageSize 查询条数
      * @return 对象列表
      */
     @Override
-    public List<ApiResourceVo> queryApiResourceByConditionPage(Object object,int pageNum, int pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
+    public PageInfo<List<ApiResourceVo>> queryApiResourceByConditionPage(ApisResourceQueryParam param) {
+        PageHelper.startPage(param.getPageNum(), param.getPageSize());
         ApiResourceExample example = new ApiResourceExample();
+        ApiResourceExample.Criteria criteria = example.createCriteria();
+
+        if (null != param && Strings.isNotEmpty(param.getName())) {
+            criteria.andNameEqualTo(param.getName());
+        }
+        if (null != param && null != param.getType()) {
+            criteria.andPidEqualTo(param.getType());
+        }
         List<ApiResource> apiResourceList = this.apiResourceMapper.selectByExample(example);
         if(CollectionUtils.isEmpty(apiResourceList)){
             return null;
@@ -61,15 +70,25 @@ public class ApiResourceServiceImpl implements ApiResourceService {
             BeanUtils.copyProperties(p,apiResourceVo);
             apiResourceVoList.add(apiResourceVo);
         });
-        return apiResourceVoList;
+        PageInfo pageInfo = new PageInfo(apiResourceList);
+        pageInfo.setList(apiResourceVoList);
+        return pageInfo;
     }
     /**
      * 按条件查询
      * @return 对象列表
      */
     @Override
-    public List<ApiResourceVo> queryApiResourceByCondition(Object object) {
+    public List<ApiResourceVo> queryApiResourceByCondition(ApisResourceQueryParam param) {
         ApiResourceExample example = new ApiResourceExample();
+        ApiResourceExample.Criteria criteria = example.createCriteria();
+
+        if (null != param && Strings.isNotEmpty(param.getName())) {
+            criteria.andNameEqualTo(param.getName());
+        }
+        if (null != param && null != param.getType()) {
+            criteria.andPidEqualTo(param.getType());
+        }
         List<ApiResource> apiResourceList =this.apiResourceMapper.selectByExample(example);    
         if(CollectionUtils.isEmpty(apiResourceList)){
             return null;

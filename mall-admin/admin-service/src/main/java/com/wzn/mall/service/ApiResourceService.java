@@ -1,6 +1,8 @@
 package com.wzn.mall.service;
 
+import com.github.pagehelper.PageInfo;
 import com.wzn.mall.entity.dto.ApiResourceDto;
+import com.wzn.mall.entity.dto.ApisResourceQueryParam;
 import com.wzn.mall.entity.vo.ApiResourceVo;
 
 import java.util.List;
@@ -22,18 +24,16 @@ public interface ApiResourceService {
     /**
      * 分页查
      * @paramObject object 条件
-     * @param pageNum 查询起始位置
-     * @param pageSize 查询条数
      * @return 对象列表
      */
-    List<ApiResourceVo> queryApiResourceByConditionPage(Object object, int pageNum, int pageSize);
+    PageInfo<List<ApiResourceVo>> queryApiResourceByConditionPage(ApisResourceQueryParam apisResourceQueryParam);
 
     /**
      * 条件查询无分页
      * @paramObject object 条件
      * @return 对象列表
      */
-    List<ApiResourceVo> queryApiResourceByCondition(Object object);
+    List<ApiResourceVo> queryApiResourceByCondition(ApisResourceQueryParam object);
 
     /**
      * 新增数据

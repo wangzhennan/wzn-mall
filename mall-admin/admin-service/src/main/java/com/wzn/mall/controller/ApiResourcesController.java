@@ -1,7 +1,9 @@
 package com.wzn.mall.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.wzn.mall.ResultModel;
 import com.wzn.mall.entity.dto.ApiResourceDto;
+import com.wzn.mall.entity.dto.ApisResourceQueryParam;
 import com.wzn.mall.entity.vo.ApiResourceVo;
 import com.wzn.mall.feign.ApiResourceFeignService;
 import com.wzn.mall.service.ApiResourceService;
@@ -31,13 +33,13 @@ public class ApiResourcesController implements ApiResourceFeignService {
     }
     
     @Override
-    public ResultModel<List<ApiResourceVo>> queryApiResourceByConditionPage(Object object,int pageNum, int pageSize){
-        return ResultModel.success(this.apiResourceService.queryApiResourceByConditionPage(object,pageNum,pageSize));
+    public ResultModel<PageInfo<List<ApiResourceVo>>> queryApiResourceByConditionPage(ApisResourceQueryParam apisResourceQueryParam) {
+        return ResultModel.success(this.apiResourceService.queryApiResourceByConditionPage(apisResourceQueryParam));
     }
 
     @Override
-    public ResultModel<List<ApiResourceVo>> queryApiResourceByCondition(Object object){
-        return ResultModel.success(this.apiResourceService.queryApiResourceByCondition(object));
+    public ResultModel<List<ApiResourceVo>> queryApiResourceByCondition(ApisResourceQueryParam apisResourceQueryParam) {
+        return ResultModel.success(this.apiResourceService.queryApiResourceByCondition(apisResourceQueryParam));
     }
 
     @Override

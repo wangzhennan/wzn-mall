@@ -1,9 +1,11 @@
 package com.wzn.mall.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wzn.mall.entity.Menu;
 import com.wzn.mall.entity.MenuExample;
 import com.wzn.mall.entity.dto.MenuDto;
+import com.wzn.mall.entity.dto.MenuQueryParam;
 import com.wzn.mall.entity.vo.MenuVo;
 import com.wzn.mall.mapper.MenuMapper;
 import com.wzn.mall.service.MenuService;
@@ -43,13 +45,11 @@ public class MenuServiceImpl implements MenuService {
 
     /**
      * 按条件查询分页
-     * @param pageNum 查询起始位置
-     * @param pageSize 查询条数
      * @return 对象列表
      */
     @Override
-    public List<MenuVo> queryMenuByConditionPage(Object object,int pageNum, int pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
+    public PageInfo<List<MenuVo>> queryMenuByConditionPage(MenuQueryParam param) {
+        PageHelper.startPage(param.getPageNum(), param.getPageSize());
         MenuExample example = new MenuExample();
         List<Menu> menuList = this.menuMapper.selectByExample(example);
         if(CollectionUtils.isEmpty(menuList)){
@@ -61,14 +61,16 @@ public class MenuServiceImpl implements MenuService {
             BeanUtils.copyProperties(p,menuVo);
             menuVoList.add(menuVo);
         });
-        return menuVoList;
+        PageInfo pageInfo = new PageInfo(menuList);
+        pageInfo.setList(menuVoList);
+        return pageInfo;
     }
     /**
      * 按条件查询
      * @return 对象列表
      */
     @Override
-    public List<MenuVo> queryMenuByCondition(Object object) {
+    public List<MenuVo> queryMenuByCondition(MenuQueryParam param) {
         MenuExample example = new MenuExample();
         List<Menu> menuList =this.menuMapper.selectByExample(example);    
         if(CollectionUtils.isEmpty(menuList)){

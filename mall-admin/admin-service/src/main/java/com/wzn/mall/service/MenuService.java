@@ -1,6 +1,8 @@
 package com.wzn.mall.service;
 
+import com.github.pagehelper.PageInfo;
 import com.wzn.mall.entity.dto.MenuDto;
+import com.wzn.mall.entity.dto.MenuQueryParam;
 import com.wzn.mall.entity.vo.MenuVo;
 
 import java.util.List;
@@ -22,18 +24,16 @@ public interface MenuService {
     /**
      * 分页查
      * @paramObject object 条件
-     * @param pageNum 查询起始位置
-     * @param pageSize 查询条数
      * @return 对象列表
      */
-    List<MenuVo> queryMenuByConditionPage(Object object, int pageNum, int pageSize);
+    PageInfo<List<MenuVo>> queryMenuByConditionPage(MenuQueryParam param);
 
     /**
      * 条件查询无分页
      * @paramObject object 条件
      * @return 对象列表
      */
-    List<MenuVo> queryMenuByCondition(Object object);
+    List<MenuVo> queryMenuByCondition(MenuQueryParam object);
 
     /**
      * 新增数据

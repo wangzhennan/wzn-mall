@@ -1,8 +1,10 @@
 package com.wzn.mall.feign;
 
+import com.github.pagehelper.PageInfo;
 import com.wzn.mall.Apis;
 import com.wzn.mall.ResultModel;
 import com.wzn.mall.entity.dto.ApiResourceDto;
+import com.wzn.mall.entity.dto.ApisResourceQueryParam;
 import com.wzn.mall.entity.vo.ApiResourceVo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -27,11 +29,11 @@ public interface ApiResourceFeignService {
    
     @ApiOperation(value = "根据条件查询分页")
     @PostMapping(Apis.APIRESOURCE_QUERY_PAGE)
-    ResultModel<List<ApiResourceVo>> queryApiResourceByConditionPage(Object object, int pageNum, int pageSize);
+    ResultModel<PageInfo<List<ApiResourceVo>>> queryApiResourceByConditionPage(@RequestBody ApisResourceQueryParam apisResourceQueryParam);
 
     @ApiOperation(value = "根据条件查询")
     @PostMapping(Apis.APIRESOURCE_QUERY_CONDITION)
-    ResultModel<List<ApiResourceVo>> queryApiResourceByCondition(Object object);
+    ResultModel<List<ApiResourceVo>> queryApiResourceByCondition(@RequestBody ApisResourceQueryParam apisResourceQueryParam);
 
     @ApiOperation(value = "添加")
     @PostMapping(Apis.APIRESOURCE_ADD)
