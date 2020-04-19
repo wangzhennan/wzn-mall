@@ -1,12 +1,6 @@
-#开发初衷
+#Springsecurity学习
+其实springsecurity filter链表组成的
+###示意图
+![](../README.assets/springsecurityFilter.png)
+#执行流程
 
-开发多年发现自己没有办法建立整体知识体系，所有计划开发一个电商项目梳理所有知识。
-在现实开发中基本都是模块开发。对于整体架构思考几乎是零。
-
-#应用层架构图
-第一次画机构图 有问题欢迎指出
-![](README.assets/WX20200404.png)
-
-
-##后台管理员权限资源表设计
-![](README.assets/admin.png)

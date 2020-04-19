@@ -21,6 +21,7 @@
     <module>mall-gateway</module>
     <module>mall-auth-service</module>
     <module>mall-admin</module>
+    <module>wzn-auth2</module>
   </modules>
   <packaging>pom</packaging>
   <name>wzn-mall</name>
@@ -39,7 +40,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+    <spring-boot.version>2.0.0.RELEASE</spring-boot.version>
     <curator.famework.version>4.2.0</curator.famework.version>
     <mybatis.version>2.1.0</mybatis.version>
     <tkmybatis.springboot.version>2.1.5</tkmybatis.springboot.version>

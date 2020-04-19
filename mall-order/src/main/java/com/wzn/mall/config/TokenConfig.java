@@ -14,6 +14,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
  **/
 @Configuration
 public class TokenConfig {
+
     private String SINGKEY = "wzn";
 
     @Bean

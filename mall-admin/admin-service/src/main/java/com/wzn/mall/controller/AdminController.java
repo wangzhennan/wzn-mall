@@ -10,10 +10,14 @@ import com.wzn.mall.error.SysErrorCode;
 import com.wzn.mall.feign.AdminFeignService;
 import com.wzn.mall.service.AdminService;
 import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -24,6 +28,9 @@ import java.util.List;
 @RestController
 @Api(tags = "管理员")
 public class AdminController implements AdminFeignService {
+
+    @Autowired
+    private DataSource dataSource;
    
     @Resource
     private AdminService adminService;
@@ -73,5 +80,10 @@ public class AdminController implements AdminFeignService {
         }else{
             return ResultModel.error(SysErrorCode.ADD_ERROR);
         }
+    }
+
+    public void tewsts() throws SQLException {
+        Connection connection = dataSource.getConnection();
+        System.out.println(connection);
     }
 }
