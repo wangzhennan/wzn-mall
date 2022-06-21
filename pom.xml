@@ -289,7 +289,7 @@
           <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.35</version><!--  依赖版本  -->
+            <version>8.0.28</version><!--  依赖版本  -->
           </dependency>
           <dependency>
             <groupId>tk.mybatis</groupId>
